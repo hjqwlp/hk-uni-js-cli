@@ -1,0 +1,43 @@
+{
+  "pages": [
+		{
+			"path": "pages/Home/Home",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/Detail/Detail",
+			"style": {
+				"navigationBarTitleText": "详情"
+			}
+		}
+	],
+	// 分包
+	"subPackages": [
+		{
+			"root": "pages/Account",
+			"pages": [
+				{
+          "path": "Login",
+          "style": {
+            "navigationBarTitleText": "登录"
+          }
+        }
+			]
+		}
+	],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			// uni-ui 规则如下配置
+			"tui-(.*)": "thorui-uni/lib/thorui/tui-$1/tui-$1.vue"
+		}
+	}
+}
