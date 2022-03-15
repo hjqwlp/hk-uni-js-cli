@@ -1,3 +1,4 @@
+import Storage from '@/plugins/Storage';
 import Request from './core/request';
 import { checkStatus } from './core/checkStatus';
 import { addAppToken } from '../cryption';
@@ -28,6 +29,10 @@ http.interceptor.request((config) => {
   config.header = {
     ...config.header,
     appToken: addAppToken(),
+    accessToken:
+      (Storage.getStorage('AccountToken') &&
+        Storage.getStorage('AccountToken').accessToken) ||
+      '',
   };
 
   return config;
@@ -38,7 +43,6 @@ http.interceptor.response(
     return response.data;
   },
   (response) => {
-    console.log(response);
     checkStatus(response.statusCode);
     // 请求错误做点什么
     return response.data;

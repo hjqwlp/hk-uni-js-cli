@@ -4,17 +4,8 @@
  * @Author: huangli
  * @Date: 2022-03-10 15:06:34
  * @LastEditors: huangli
- * @LastEditTime: 2022-03-10 15:09:18
+ * @LastEditTime: 2022-03-14 15:45:33
  */
-/*
- * @Descripttion: 登录实例封装
- * @version: 1.0.0
- * @Author: huangli
- * @Date: 2022-03-08 16:07:30
- * @LastEditors: huangli
- * @LastEditTime: 2022-03-10 14:27:13
- */
-// import { useUserStoreWithOut } from '@/store/modules/User';
 class Storage {
   constructor() {
     if (!Storage.instance) {

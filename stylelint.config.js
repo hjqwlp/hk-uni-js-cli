@@ -17,6 +17,7 @@ module.exports = {
     'no-descending-specificity': null,
     'function-url-quotes': 'always',
     'string-quotes': 'single',
+    'declaration-block-trailing-semicolon': null,
     indentation: 2,
     'unit-case': null,
     'color-hex-case': 'lower',

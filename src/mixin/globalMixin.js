@@ -2,7 +2,6 @@ export default {
   data() {
     return {};
   },
-
   methods: {
     //显示loading
     showLoadingMixin(LoadingTitle) {

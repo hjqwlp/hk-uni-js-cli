@@ -4,16 +4,18 @@
  * @Author: huangli
  * @Date: 2022-03-07 10:33:10
  * @LastEditors: huangli
- * @LastEditTime: 2022-03-07 13:51:17
+ * @LastEditTime: 2022-03-15 17:36:21
  */
 import { defineStore } from 'pinia';
 import { store } from '@/store';
 import { getHosIdByAppid } from '@/apis/Message';
+import { getHospitalInfo } from '@/apis/ManageSys';
 
 export const useBasicStore = defineStore('basic', {
   state: () => ({
+    appInfo: {},
     hosId: '',
-    hosInfo: {},
+    hosInfo: '',
   }),
   getters: {
     gainHosId: (state) => state.hosId,
@@ -22,12 +24,27 @@ export const useBasicStore = defineStore('basic', {
   actions: {
     fetchHosId() {
       // #ifdef  MP-WEIXIN
+      if (this.hosId && this.hosInfo) {
+        return;
+      }
+      if (this.hosId && !this.hosInfo) {
+        this.fetchHosInfo();
+        return;
+      }
       const accountInfo = uni.getAccountInfoSync();
       const appId = accountInfo.miniProgram.appId;
       getHosIdByAppid({ appId }).then((res) => {
         console.log(res);
+        this.appInfo = res;
+        this.hosId = res.orgCode;
+        this.fetchHosInfo();
       });
       // #endif
+    },
+    fetchHosInfo() {
+      getHospitalInfo({ oid: this.hosId }).then((res) => {
+        this.hosInfo = res;
+      });
     },
   },
 });

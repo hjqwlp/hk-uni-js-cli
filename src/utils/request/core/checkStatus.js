@@ -4,8 +4,10 @@
  * @Author: huangli
  * @Date: 2022-03-10 14:33:56
  * @LastEditors: huangli
- * @LastEditTime: 2022-03-11 09:32:45
+ * @LastEditTime: 2022-03-15 16:31:02
  */
+import Login from '@/plugins/Login';
+
 export function checkStatus(status, errorMessageMode = 'message') {
   let errMessage = '';
 
@@ -13,6 +15,12 @@ export function checkStatus(status, errorMessageMode = 'message') {
     // 404请求不存在
     case 401:
       errMessage = '登录失效';
+      try {
+        Login.gainLoginParams();
+        // return this.request(options);
+      } catch (err) {
+        // 在此处理错误
+      }
       break;
     case 404:
       errMessage = '网络请求错误, 未找到该资源';

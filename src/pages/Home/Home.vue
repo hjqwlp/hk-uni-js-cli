@@ -5,17 +5,14 @@
   </hk-page>
 </template>
 <script setup>
-  import { getCurrentInstance, onMounted } from 'vue';
-  import { useBasicStore } from '@/store/modules/Basic';
+  import { getCurrentInstance } from 'vue';
 
-  const BasicStore = useBasicStore();
-  const { $hRouter } = getCurrentInstance().appContext.config.globalProperties;
-
-  onMounted(() => {
-    BasicStore.fetchHosId();
-  });
+  const { proxy } = getCurrentInstance();
 
   const toDetail = () => {
-    $hRouter.push('/pages/Detail/Detail', { name: 'abc', age: '123' });
+    proxy.$Router.push({
+      path: '/pages/Detail/Detail',
+      query: { name: 'abc', age: '123' },
+    });
   };
 </script>

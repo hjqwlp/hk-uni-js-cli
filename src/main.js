@@ -1,19 +1,23 @@
 import { createSSRApp } from 'vue';
 import { setupStore } from './store';
-import { setupRouter, router } from '@/utils/router';
-import globalMixin from '@/mixin/globalMixin.js';
-import Storage from '@/plugins/Storage';
-
+import Router from '@/plugins/Router/Router';
+import GlobalMixin from '@/mixin/GlobalMixin.js';
+import GlobalMethods from '@/plugins/GlobalMethods.js';
 import App from './App.vue';
 
 export function createApp() {
   const app = createSSRApp(App);
-  app.config.globalProperties.$hRouter = router;
-  app.config.globalProperties.$storage = Storage;
-  app.mixin(globalMixin);
+  app.use(GlobalMethods);
+  app.mixin(GlobalMixin);
   setupStore(app);
-  setupRouter(app);
   return {
     app,
   };
 }
+
+Router.beforeEach = (to, next) => {
+  console.log('全局前置守卫', to);
+  next();
+};
+
+console.log(Router);
