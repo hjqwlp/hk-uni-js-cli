@@ -8,6 +8,7 @@
       console.log('即将重启自动应用新版本');
       updateManager.applyUpdate();
     });
+
     // #endif
     // 测试代码提交
   });
