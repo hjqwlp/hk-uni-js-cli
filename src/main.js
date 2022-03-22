@@ -14,7 +14,7 @@ export function createApp() {
     app,
   };
 }
-
+const a = 123123;
 Router.beforeEach = (to, next) => {
   console.log('全局前置守卫', to);
   next();
