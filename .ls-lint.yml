@@ -1,7 +1,7 @@
 # https://github.com/vuejs/vue-next - b716a906fe51e82a1b3f82cf538b67abdaf66154
 
 ls:
-  .js: kebab-case | PascalCase
+  .js: kebab-case | PascalCase | camelCase
   .ts: camelCase
   .d.ts: kebab-case
   .mock.ts: kebab-case
@@ -16,6 +16,7 @@ ls:
 
 ignore:
   - node_modules
+  - dist
   - .git
   - .github
   - .vscode
