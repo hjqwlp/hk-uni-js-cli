@@ -1,11 +1,3 @@
-/*
- * @Descripttion: eslint配置
- * @version: 1.0.0
- * @Author: huangli
- * @Date: 2022-02-14 11:12:44
- * @LastEditors: huangli
- * @LastEditTime: 2022-03-10 14:53:22
- */
 module.exports = {
   root: true,
   env: {
@@ -18,7 +10,6 @@ module.exports = {
     'eslint:recommended',
     'plugin:vue/vue3-recommended',
     'plugin:prettier/recommended',
-    // eslint-config-prettier 的缩写
     'prettier',
   ],
   parserOptions: {
@@ -30,7 +21,6 @@ module.exports = {
       jsx: true,
     },
   },
-  // eslint-plugin-vue eslint-plugin-prettier的缩写
   plugins: ['vue', 'import', 'prettier'],
   rules: {
     'no-var': 'error',
